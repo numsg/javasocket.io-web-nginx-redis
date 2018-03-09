@@ -1,0 +1,35 @@
+group 'com.gsafety.pivs.notice'
+version '3.0.0-SNAPSHOT'
+
+apply from: "./scripts/gradle/sonarqube.gradle"
+apply from: "./scripts/gradle/install-hooks.gradle"
+apply from: "./scripts/gradle/publish.gradle"
+
+buildscript {
+    repositories {
+        maven {
+            url 'http://172.18.24.51:8081/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.1.RELEASE")
+        classpath ("net.ltgt.gradle:gradle-apt-plugin:0.9")
+    }
+}
+
+/*task wrapper(type: Wrapper){
+    gradleVersion = '3.2.1'
+    distributionType = Wrapper.DistributionType.BIN
+    distributionUrl = 'http://172.18.24.51:8081/nexus/content/sites/gs-assets/java/gradle/gradle-' +
+            gradleVersion + '-' +
+            distributionType.name().toLowerCase() + '.zip'
+}*/
+
+
+// 所有子项目的通用配置
+subprojects {
+    apply from: "../scripts/gradle/subprojectset.gradle"
+    apply from: "../scripts/gradle/dependencies.gradle"
+    //安装钩子
+    build.dependsOn installGitHooks;
+}

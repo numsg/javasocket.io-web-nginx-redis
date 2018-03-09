@@ -1,0 +1,19 @@
+group 'com.gsafety.pivs.notice'
+version '3.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url 'http://172.18.24.51:8081/nexus/content/groups/public/'
+    }
+}
+
+dependencies {
+    compile project(":pivs-notice-common")
+    compile project(":pivs-notice-webapi")
+    compile project(":pivs-notice-service")
+}
+
+apply from: "../scripts/gradle/publish.gradle"
+apply from: "../scripts/gradle/warbuild.gradle"

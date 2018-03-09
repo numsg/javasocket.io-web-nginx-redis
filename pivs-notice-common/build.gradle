@@ -1,0 +1,18 @@
+group 'com.gsafety.pivs.notice'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url 'http://172.18.24.51:8081/nexus/content/groups/public/'
+    }
+}
+
+dependencies {
+    compile(
+        "org.apache.httpcomponents:httpclient:4.5.2",
+        "org.apache.commons:commons-lang3:3.4",
+        "commons-io:commons-io:2.5",
+        "commons-net:commons-net:3.5"
+    )
+}

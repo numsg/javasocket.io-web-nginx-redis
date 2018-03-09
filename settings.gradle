@@ -1,0 +1,6 @@
+rootProject.name = 'pivs-notice'
+include 'pivs-notice-backend',
+        'pivs-notice-webapi'
+include 'pivs-notice-common'
+include 'pivs-notice-service'
+

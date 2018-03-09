@@ -1,0 +1,13 @@
+group 'com.gsafety.pivs.notice'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url 'http://172.18.24.51:8081/nexus/content/groups/public/'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
